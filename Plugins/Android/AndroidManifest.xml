@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.appcoins.diceroll"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <queries>
+    <intent>
+      <action android:name="com.appcoins.wallet.iab.action.BIND"/>
+    </intent>
+    <intent>
+      <action android:name="com.dti.folderlauncher.iab.action.BIND"/>
+    </intent>
+    <package android:name="com.appcoins.wallet" />
+    <package android:name="com.dti.folderlauncher" />
+    <package android:name="cm.aptoide.pt" />
+  </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <application>
+        <activity android:name="com.appcoins.diceroll.OverrideExample"
+                  android:theme="@style/UnityThemeSelector">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+        </activity>
+        <activity android:name="com.appcoins.osp.OspActivity"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <service
+            android:name="com.appcoins.sdk.billing.BillingService"
+            android:exported="false" />
+
+        <receiver android:name="com.appcoins.sdk.billing.billing_updates_notifier.InAppBillingNotificationReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.vending.billing.PURCHASES_UPDATED" />
+            </intent-filter>
+        </receiver>
+        <activity
+            android:name="com.appcoins.sdk.billing.AppcoinsIabActivity"
+            android:exported="false"/>
+        <meta-data
+            android:name="com.appcoins.sdk.billing.service"
+            android:value="catapult" />
+    </application>
+</manifest>
+
+
