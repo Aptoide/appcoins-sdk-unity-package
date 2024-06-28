@@ -1,60 +1,28 @@
-# Package Sample DEMO DEMO
-<!-- Describe your package -->
 
-[![NPM Package](https://img.shields.io/npm/v/com.stansassets.package-sample)](https://www.npmjs.com/package/com.stansassets.package-sample)
-[![openupm](https://img.shields.io/npm/v/com.stansassets.package-sample?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.stansassets.package-sample/)
-[![Licence](https://img.shields.io/npm/l/com.stansassets.package-sample)](https://github.com/StansAssets/com.stansassets.package-sample/blob/master/LICENSE)
-[![Issues](https://img.shields.io/github/issues/StansAssets/com.stansassets.package-sample)](https://github.com/StansAssets/com.stansassets.package-sample/issues)
+# AppCoins SDK Unity package
 
-<!-- Add some useful links here -->
+## Description
 
-[API Reference](https://myapi) | [Forum](https://myforum) | [Wiki](https://github.com/StansAssets/com.stansassets.package-sample/wiki)
+Streamline the process of adding Appcoins SDK to your Unity app through importing from the Unity Package Manager. Below you can see the video about how to integrate the SDK and after it a detailed installation guide of the same process.
 
-### Install from NPM
-* Navigate to the `Packages` directory of your project.
-* Adjust the [project manifest file](https://docs.unity3d.com/Manual/upm-manifestPrj.html) `manifest.json` in a text editor.
-* Ensure `https://registry.npmjs.org/` is part of `scopedRegistries`.
-  * Ensure `com.stansassets` is part of `scopes`.
-  * Add `com.stansassets.package-sample` to the `dependencies`, stating the latest version.
+## Video
 
-A minimal example ends up looking like this. Please note that the version `X.Y.Z` stated here is to be replaced with [the latest released version](https://www.npmjs.com/package/com.stansassets.foundation) which is currently [![NPM Package](https://img.shields.io/npm/v/com.stansassets.foundation)](https://www.npmjs.com/package/com.stansassets.foundation).
-  ```json
-  {
-    "scopedRegistries": [
-      {
-        "name": "npmjs",
-        "url": "https://registry.npmjs.org/",
-        "scopes": [
-          "com.stansassets"
-        ]
-      }
-    ],
-    "dependencies": {
-      "com.stansassets.package-sample": "X.Y.Z",
-      ...
-    }
-  }
-  ```
-* Switch back to the Unity software and wait for it to finish importing the added package.
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/m-EZxdb7sUY/0.jpg)](https://www.youtube.com/watch?v=m-EZxdb7sUY)
 
-### Install from OpenUPM
-* Install openupm-cli `npm install -g openupm-cli` or `yarn global add openupm-cli`
-* Enter your unity project folder `cd <YOUR_UNITY_PROJECT_FOLDER>`
-* Install package `openupm add com.stansassets.package-sample`
+## Installation Guide
 
-### Install from a Git URL
-Yoy can also install this package via Git URL. To load a package from a Git URL:
+### Step 1 - Import Package
+* Start by opening on the top menu bar the Window > Package Manager
+* In the new window on the top left corner click on the + sign and select Import via git URL and paste the following link: https://github.com/Aptoide/appcoins-sdk-unity-package * Wait to import and compile all files
 
-* Open [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) window.
-* Click the add **+** button in the status bar.
-* The options for adding packages appear.
-* Select Add package from git URL from the add menu. A text box and an Add button appear.
-* Enter the `https://github.com/StansAssets/com.stansassets.package-sample.git` Git URL in the text box and click Add.
-* You may also install a specific package version by using the URL with the specified version.
-  * `https://github.com/StansAssets/com.stansassets.package-sample#X.Y.X`
-  * Please note that the version `X.Y.Z` stated here is to be replaced with the version you would like to get.
-  * You can find all the available releases [here](https://github.com/StansAssets/com.stansassets.package-sample/releases).
-  * The latest available release version is [![Last Release](https://img.shields.io/github/v/release/stansassets/com.stansassets.package-sample)](https://github.com/StansAssets/com.stansassets.package-sample/releases/latest)
+### Step 2 - Move Folders * Open the Assets folder and the package folder * Move the folder and related metafiles of Scripts and Plugins folder to the Assets folder * Wait to compile files 
+### Step 3 - Add AptoPurchaseManager to the Main Camera game object
+* Open the Scripts folder and select the Main Camera game object * Drag and drop the AptoPurchaseManager to inspector side of the Main Camera
 
-For more information about what protocols Unity supports, see [Git URLs](https://docs.unity3d.com/Manual/upm-git.html).
-
+### Step 4 - Set the Params
+* Set the params of KEY, Attempts and Developer Payload 
+### Step 5 - Setup the Purchase Button * Select the Play button and in the inspector on the bottom add on the on click a new entry * Drag and drop the Main Camera to the box under Runtime (on OnClick section) * After that select the Script AptoPurchaseManager and the method StartPurchase 
+### Step 6 - Setup the Consume Item Button
+* Select the Consume button and in the inspector on the bottom add on the on click a new entry * Drag and drop the Main Camera to the box under Runtime (on OnClick section) * After that select the Script AptoPurchaseManager and the method ConsumeItem 
+### Step 7 - Update the package name
+* Open the Manifest file and update the package name to your project * Update as well on the OverrideExample the line 1 package name and the line 27 on the getSharedPreferences   After that you can run and you have successfully integrate the Appcoins SDK on your Unity App through Package Manager.
